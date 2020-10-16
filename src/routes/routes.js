@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const controllerMoves = require('../api/moves/controllers/controllerMoves');
 
-router.get('/moves', async (req, res) => {
-  return res.status(200).json("Hello World");
-});
+router.post('/moves', controllerMoves.create);
 
 module.exports = router;

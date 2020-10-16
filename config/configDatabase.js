@@ -1,4 +1,7 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
 module.exports = {
-  dialect: "sqlite",
-  storage: 'config/database/database.sqlite'
+    dialect: process.env.DIALECT,
+    storage: process.env.STORAGE
 };
