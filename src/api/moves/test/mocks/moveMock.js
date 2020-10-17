@@ -1,4 +1,4 @@
-const moveMockSuccess = [{
+const moveSuccess = {
   titulo: "Titulo test",
   sinopse: "Sinopse test",
   genero: "Teste",
@@ -8,8 +8,8 @@ const moveMockSuccess = [{
   diretor: "Teste diretor",
   link_imdb: "Teste link",
   quantidade: 10,
-}];
+};
 
 module.exports = {
-  moveMockSuccess
+  moveSuccess
 }

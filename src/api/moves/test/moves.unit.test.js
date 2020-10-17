@@ -1,18 +1,21 @@
-const {getMockReq, getMockRes} = require('@jest-mock/express');
-const { moveMockSuccess } = require('./mocks/moveMock');
-const {req, res, clearMockRes} = getMockRes();
+const { mountpath } = require('../../../app');
 const Move = require('../../models/MoveModel');
-
-
-beforeEach(() => {
-  clearMockRes()
-});
+const { moveSuccess } = require('./mocks/moveMock');
+const moveValidation = require('../validations/moveValidation');
 
 describe("Test units moves",  () => {
   it('should create move success!', async () => {
-    const req = getMockReq({body: moveMockSuccess});
-    const res = getMockRes().res.status(200)
-    const moves = await Move.create(req);
-    console.log(moves)
+      const {error, value} = moveValidation.validate(moveSuccess);
+      if(!error) {
+        const move = await Move.create(value); 
+        return move;
+        expect(move.titulo).toEqual(moveSuccess.titulo);
+        expect(move.sinopse).toEqual(moveSuccess.sinopse);
+        expect(move.genero).toEqual(moveSuccess.genero);
+        expect(move.dataLancamento).toEqual(moveSuccess.dataLancamento);
+        expect(move.legendado).toEqual(moveSuccess.legendado);
+        expect(move.diretor).toEqual(moveSuccess.diretor);
+        expect(move.link_imdb).toEqual(moveSuccess.link_imdb);
+      }
   });
 });

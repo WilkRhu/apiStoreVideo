@@ -4,9 +4,9 @@ class Moves extends Model {
   static init(connection) {
     super.init({
       titulo: DataTypes.STRING,
-      sinopse: DataTypes.STRING,
+      sinopse: DataTypes.TEXT,
       genero: DataTypes.STRING,
-      dataNascimento: DataTypes.STRING,
+      dataLancamento: DataTypes.STRING,
       idioma: DataTypes.STRING,
       legendado: DataTypes.STRING,
       diretor: DataTypes.STRING,

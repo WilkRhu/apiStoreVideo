@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false,
       },
 
-      data_lancamento: {
+      dataLancamento: {
         type: Sequelize.STRING,
         allowNull: true,
       },

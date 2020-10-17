@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "sequelize-cli db:migrate --env=test",
     "start": "nodemon server.js",
-    "posttest": "sequelize-cli db:migrate:undo --env=prod",
-    "test": "jest && NODE_ENV=test",
+    "pretest": "sequelize-cli db:migrate && NODE_ENV=test",
+    "test": "jest",
+    "posttest": "sequelize-cli db:migrate:undo && NODE_ENV=test",
     "lint": "eslint ./src ./test --ext .js",
     "lint:fix": "eslint ./src ./test --ext .js --fix",
     "style:check": "prettier --check src/**/*.js test/**/*.js",
@@ -33,6 +33,7 @@
     "@jest-mock/express": "^1.1.9",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "sequelize-mock": "^0.10.2"
   }
 }
