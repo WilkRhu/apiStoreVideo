@@ -5,4 +5,4 @@ config/database/database.sqlite
 config/database/testes/testes.sqlite
 envDatabase.js
 .vscode
-converage
+coverage
