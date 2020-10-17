@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const controllerMoves = require('../api/moves/controllers/controllerMoves');
+const controllerMovies = require('../api/movies/controllers/controllerMovies');
 
-router.get('/moves', controllerMoves.findAll);
-router.get('/moves/:id', controllerMoves.findById);
-router.post('/moves', controllerMoves.create);
-router.put('/moves/:id', controllerMoves.findUpdate);
-router.delete('/moves/:id', controllerMoves.destroy);
+router.get('/movie', controllerMovies.findAll);
+router.get('/movie/:id', controllerMovies.findById);
+router.post('/movie', controllerMovies.create);
+router.put('/movie/:id', controllerMovies.findUpdate);
+router.delete('/movie/:id', controllerMovies.destroy);
 
 module.exports = router;
