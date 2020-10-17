@@ -1,4 +1,4 @@
-const moveSuccess = {
+const movieSuccess = {
   title: "Titulo test",
   synopsis: "Sinopse test",
   genre: "Teste",
@@ -12,5 +12,5 @@ const moveSuccess = {
 
 
 module.exports = {
-  moveSuccess
+  movieSuccess
 }
