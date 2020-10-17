@@ -9,42 +9,42 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      titulo: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      sinopse: {
+      synopsis: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
 
-      genero: {
+      genre: {
         type: Sequelize.STRING,
         allowNull: false,
       },
 
-      dataLancamento: {
+      releaseDate: {
         type: Sequelize.STRING,
         allowNull: true,
       },
 
-      idioma: {
+      language: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      legendado: {
+      subtitled: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      diretor: {
+      director: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      link_imdb: {
+      linkImb: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      quantidade: {
+      amount: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },

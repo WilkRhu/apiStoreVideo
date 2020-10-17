@@ -3,15 +3,15 @@ const {Model, DataTypes} = require('sequelize');
 class Moves extends Model {
   static init(connection) {
     super.init({
-      titulo: DataTypes.STRING,
-      sinopse: DataTypes.TEXT,
-      genero: DataTypes.STRING,
-      dataLancamento: DataTypes.STRING,
-      idioma: DataTypes.STRING,
-      legendado: DataTypes.STRING,
-      diretor: DataTypes.STRING,
-      link_imdb: DataTypes.STRING,
-      quantidade: DataTypes.INTEGER,
+      title: DataTypes.STRING,
+      synopsis: DataTypes.TEXT,
+      genre: DataTypes.STRING,
+      releaseDate: DataTypes.STRING,
+      language: DataTypes.STRING,
+      subtitled: DataTypes.STRING,
+      director: DataTypes.STRING,
+      linkImb: DataTypes.STRING,
+      amount: DataTypes.INTEGER,
     }, {
       sequelize: connection
     })

@@ -1,15 +1,15 @@
 const Joi = require('@hapi/joi');
 
 const moveValidation = Joi.object({
-  titulo: Joi.string().required(),
-  sinopse: Joi.string().required(),
-  genero: Joi.string().required(),
-  dataLancamento: Joi.string().optional(),
-  idioma: Joi.string().required(),
-  legendado: Joi.string().required(),
-  diretor: Joi.string().optional(),
-  link_imdb: Joi.string().optional(),
-  quantidade: Joi.number().required(),
+  title: Joi.string().required(),
+  synopsis: Joi.string().required(),
+  genre: Joi.string().required(),
+  releaseDate: Joi.string().optional(),
+  language: Joi.string().required(),
+  subtitled: Joi.string().required(),
+  director: Joi.string().optional(),
+  linkImdb: Joi.string().optional(),
+  amount: Joi.number().required(),
 });
 
 module.exports = moveValidation;
