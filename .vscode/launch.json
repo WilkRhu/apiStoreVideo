@@ -15,7 +15,8 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-            "disableOptimisticBPs": true
+            "disableOptimisticBPs": true,
+            "envFile": "${workspaceFolder}/.env.test"
         }
 
     ]

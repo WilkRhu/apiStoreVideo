@@ -8,7 +8,7 @@ const moveValidation = Joi.object({
   language: Joi.string().required(),
   subtitled: Joi.string().required(),
   director: Joi.string().optional(),
-  linkImdb: Joi.string().optional(),
+  linkImb: Joi.string().optional(),
   amount: Joi.number().required(),
 });
 

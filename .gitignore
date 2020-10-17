@@ -3,3 +3,5 @@ node_modules
 .env.test
 database.sqlite
 testes.sqlite
+envDatabase.js
+.vscode
