@@ -1,4 +1,12 @@
 module.exports = {
-  dialect: "sqlite",
-  storage: 'config/database/database.sqlite'
-};
+  test: {
+    dialect: process.env.DIALECT,
+    storage: process.env.STORAGE
+  },
+
+  prod: {
+    dialect: process.env.DIALECT,
+    storage: process.env.STORAGE
+  }
+    
+}

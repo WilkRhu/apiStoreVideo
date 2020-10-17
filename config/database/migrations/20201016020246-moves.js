@@ -2,50 +2,50 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('moves', {
+    return queryInterface.createTable('Moves', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      titulo: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      sinopse: {
+      synopsis: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
 
-      genero: {
+      genre: {
         type: Sequelize.STRING,
         allowNull: false,
       },
 
-      data_lancamento: {
+      releaseDate: {
         type: Sequelize.STRING,
         allowNull: true,
       },
 
-      idioma: {
+      language: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      legendado: {
+      subtitled: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      diretor: {
+      director: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      link_imdb: {
+      linkImb: {
         type: Sequelize.STRING,
         allowNull: true,
       },
-      quantidade: {
-        type: Sequelize.STRING,
+      amount: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       createdAt: {
@@ -61,6 +61,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('moves');
+    return queryInterface.dropTable('Moves');
   }
 };
