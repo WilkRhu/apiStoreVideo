@@ -5,14 +5,14 @@
 
 <i><b>Summary</b></i>
 <ul>
-    <li><a href="">Features</a></li>
-    <li><a href="">Arquitetura</a></li>
-    <li><a href="">Configurando o ambiente e subindo a aplicação</a></li>
-    <li><a href="">Pacotes Usados</a></li>
-    <li><a href="">EndPoints</a></li>
+    <li><a href="feature">Features</a></li>
+    <li><a href="arq">Arquitetura</a></li>
+    <li><a href="amb">Configurando o ambiente e subindo a aplicação</a></li>
+    <li><a href="pcus">Pacotes Usados</a></li>
+    <li><a href="end">EndPoints</a></li>
 </ul>
 <hr>
-<h2>Features</h2>
+<h2 name="feature">Features</h2>
 <span>
     A organização do código foi baseada no MVC porem ultilizado
     o melhor forma de desacoplamento das funcionalidades, visando a
@@ -41,14 +41,14 @@
 <b>Linter</b>
 <p>Para code styling foi usado <a href="https://eslint.org/">eslint</a>.</p>
 <hr>
-<h2> Arquitetura </h2>
+<h2 name="arq"> Arquitetura </h2>
 <hr>
 <b>Banco de dados</b>
 <p>
 Foi usado o banco de dados Sqlite tanto para a produção
 quanto para os testes.
 </p>
-<h2>Configurando o ambiente e rodando a aplicação</h2>
+<h2 name="amb">Configurando o ambiente e rodando a aplicação</h2>
 <p>
 Depois de criar um gitclone  é só ultilizar o gerenciandor de pacotes de sua preverência.
 </p>
@@ -66,9 +66,26 @@ Será necessário ter o sequelize-cli de forma global o como dependencia de dese
 <code>npm install --save-dev sequelize-cli</code>
 <p>
 <a href="https://www.npmjs.com/package/sequelize-cli"><p>Mais informações aqui</p></a></p>
+<h2>Teste</h2>
+Como informado foi ultilizado o jest para os tests unitário e de integração.
+Para rodar os testes local será necessário criar um arquivo com o nome de <code>envDatabase</code> na raiz do projeto, contendo essas informações <br>
+<code>
+const test = {
+  dialect: "sqlite",
+  storage: "config/database/testes/testes.sqlite"
+};
+const prod = {
+  dialect: "sqlite",
+  storage: "config/database/database.sqlite"
+};
+module.exports = {
+  test,
+  prod
+}
+</code>
 <hr>
 
-<h2>Pacotes Usados</h2>
+<h2 name="pcus">Pacotes Usados</h2>
 Em resumo...
 <table class="table">
   <thead>
@@ -124,7 +141,7 @@ Em resumo...
 
 <p>Obs:  esses são os principais pacotes que foram ultilizados na construção do projeto e serão istalados automaticamente a partir do comando <code>npm intall</code>
 <hr>
-<h2>EndPoints</h2>
+<h2 name="end">EndPoints</h2>
 <ul>
 <li><code>GET /movie - listar todos os filmes</code></li>
 
@@ -256,5 +273,36 @@ Em resumo...
         </div>
             <img src="https://user-images.githubusercontent.com/29145254/96386453-76615900-1171-11eb-902e-9cbf442be882.PNG" />
         </div>
+        <span>Caso a locação NÃO esteja em atraso retorna essa informação</span>
+        </div>
+            <img src="https://user-images.githubusercontent.com/29145254/96388537-e2e35480-117f-11eb-802a-150a97959bed.PNG" />
+        </div>
     <p>
+</p>
+<hr>
+<h2>Sobre as funções de logica</h2>
+<p>
+Crie na forma de função logica arquivo dentro da pasta api/rental/utils/logicFunction.js, esse arquivo é responsável pelo acoplamento das funções que são necessárias para :
+</p>
+<b>Funções</b>
+<br>
+<b>deadLineReturn</b>
+<p>
+Verifica a quantidade de filmes disponíveis, caso o numero de locação seja maior que a quantidade disponivel retorna um erro, caso esteja tudo ok elacria uma data de previsão de entrega em formato string para ser salva no banco
+</p>
+<b>amountFunction</b>
+<p>
+Verifica a quantidade de filmes disponíveis, caso o numero de locação seja maior que a quantidade disponivel retorna um erro, porem essa função subtrai a quantidade no banco de dados, ou seja caso tenha 10 ele queira fazer a locação de 2 no banco ele muda o valor de 10 para 8;
+</p>
+<b>amountForRentalFunction</b>
+<p>
+Retorna a quantidade de dias para devolver o filme, se o usuário locar de 1 retorna 1 caso 2 a 5 retorna 3 dias, caso 5 a 9 filmes ela retorna 5 dias caso  10 ou mais filmes ele retorna 10 dias
+</p>
+<b>expiresFunction</b>
+<p>
+Essa função é responsável para verificar o banco de dados e retornar as locações que estão em atraso, caso não tenha ele retorna uma mensagem
+</p>
+<b>expiresOneFunction</b>
+<p>
+Verifica se a locação esta ou não atrasada porem só lê uma entidade, é usada na rota put para retornar uma mensagem informando se a devolução está ou não em atraso.
 </p>
