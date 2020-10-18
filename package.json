@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "pretest": "sequelize-cli db:migrate --env=test",
-    "test": "jest --watch",
+    "test": "jest",
     "posttest": "sequelize-cli db:migrate:undo:all --env=test",
     "test:ci": "npm test -- --coverage",
     "lint": "eslint ./src ./test --ext .js",

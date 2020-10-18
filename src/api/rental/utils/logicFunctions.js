@@ -6,7 +6,7 @@ const {
 const moment = require('moment');
 
 const deadLineReturn = (movieAmount, rentalAmount) => {
-  if (movieAmount >= 1) {
+  if (movieAmount > rentalAmount) {
     const date = new Date();
     const currentDate = new Date();
     const amountForRental = amountForRentalFunction(rentalAmount);
