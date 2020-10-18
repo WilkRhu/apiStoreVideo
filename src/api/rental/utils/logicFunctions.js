@@ -64,20 +64,25 @@ const expiresFunction = (data) => {
   const now = moment(new Date());
   const info = [];
   for (let i = 0; i < data.length; i++) {
-    const element = data[i].dataValues;
-    const returnDate = dateReturn(element.deadlineForReturn);
-    const duration = moment.duration(now.diff(returnDate));
-    const delayedDays = Math.sign(duration._data.days);
-    if (delayedDays === 1) {
-      info.push({
-        data: data[i],
-        message: `The user ${data[i].lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
-      })
+      if(data[i].returnDate === null) {
+        const element = data[i].dataValues;
+        const returnDate = dateReturn(element.deadlineForReturn);
+        const duration = moment.duration(now.diff(returnDate));
+        const delayedDays = Math.sign(duration._data.days);
+        if (delayedDays === 1) {
+          info.push({
+            data: data[i],
+            message: `The user ${data[i].lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
+          })
+        }
+      }
+      return {
+        message: "There is no delayed film"
+      }
     }
-  }
-  if(info.length !== 0) {
-    return info;
-  }
+    if(info.length !== 0) {
+      return info;
+    }
 }
 
 const expiresOneFunction = (data) => {
