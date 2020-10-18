@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Rental', {
+    return queryInterface.createTable('Rentals', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -24,8 +24,8 @@ module.exports = {
         allowNull: false
       },
       rentalDate: {
-        type: Sequelize.DATE,
-        default: new DATE()
+        type: Sequelize.STRING,
+        allowNull: false
       },
       deadlineForReturn: {
         type: Sequelize.STRING,
@@ -33,17 +33,25 @@ module.exports = {
       },
       lessor: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
       },
       returnDate: {
         type: Sequelize.STRING,
         allowNull: true
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
 
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     })
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Rental')
+    return queryInterface.dropTable('Rentals')
   }
 };
