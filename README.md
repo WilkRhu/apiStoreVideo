@@ -148,7 +148,45 @@ Em resumo...
     <b>GET /movie</b>
     <p>
         <b>Retorna a lista dos filmes cadastrados</b>
-        <code>![getMoviesAll](https://user-images.githubusercontent.com/29145254/96385130-45305b00-1168-11eb-9cb2-516dab44c3c7.PNG)
-        </code>
+        <img src="https://user-images.githubusercontent.com/29145254/96385130-45305b00-1168-11eb-9cb2-516dab44c3c7.PNG" />
     <p>
 </p>
+<p>
+    <b>GET /movie{id}</b>
+    <p>
+        <b>Retorna o filme cadastrado passando a id como parâmetro</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385319-7fe6c300-1169-11eb-936f-c5e5a782124e.PNG" />
+    <p>
+</p>
+
+<p>
+    <b>POST /movie</b>
+    <p>
+        <b>Cadastra o movie passando essas informações</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385386-e370f080-1169-11eb-98e1-1e94d296d49e.PNG" />
+        <b>Deve retornar essas informações</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385414-2a5ee600-116a-11eb-9e38-6720626eb7e7.PNG" />
+    <p>
+</p>
+<p>
+    <b>PUT /movie/{id}</b>
+    <p>
+        <b>Update dos filmes</b>
+        <span>Obs: nessa rota você pode passar qualquer um
+        dos campos que queira atualizar</span>
+        <img src="https://user-images.githubusercontent.com/29145254/96385635-883ffd80-116b-11eb-9642-35a94b5ad485.PNG" />
+        <b>Deve retornar essas informações</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385646-9db52780-116b-11eb-9c14-2785f3d74f58.PNG" />
+    <p>
+</p>
+
+<p>
+    <b>DELETE /movie/{id}</b>
+    <p>
+        <b>Deletar um filme passando o {id}</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385796-92163080-116c-11eb-85ea-22a45191f0b4.PNG" />
+        <b>Deve retornar essas informações</b>
+        <img src="https://user-images.githubusercontent.com/29145254/96385797-93475d80-116c-11eb-92a4-31143aca8760.PNG" />
+    <p>
+</p>
+
