@@ -38,6 +38,11 @@ const getExpireList = async (req, res) => {
   try {
     const rental = await Rental.findAll({});
     const expire = await expiresFunction(rental);
+    if (expire.status === 400) {
+      return res.status(400).json({
+        message: expire.message
+      })
+    }
     return res.status(200).json(expire);
   } catch (err) {
     return res.status(400).json({
@@ -57,12 +62,19 @@ const store = async (req, res) => {
       }
     });
     if (movies) {
-      const {date, error, message} = await deadLineReturn(movies.amount, rental.amount);
+      const {
+        date,
+        error,
+        message
+      } = await deadLineReturn(movies.amount, rental.amount);
       if (date) {
         const contractRental = await returnObjectRental(rental, date);
         const amount = await amountFunction(movies, rental.amount);
         if (amount.status !== 400) {
-          const { error, value } = await rentalValidation.validate(contractRental);
+          const {
+            error,
+            value
+          } = await rentalValidation.validate(contractRental);
           if (!error) {
             const storeRental = await Rental.create(value);
             const newRental = returnContractRental(storeRental);
@@ -114,7 +126,6 @@ const devolveRental = async (req, res) => {
       });
       return res.status(201).json({
         data: {
-          rental: rental,
           message: verifyDare.message
         }
       })
@@ -127,6 +138,7 @@ const devolveRental = async (req, res) => {
         id
       }
     });
+    verifyDare[0].status = undefined;
     return res.status(201).json(verifyDare);
   } catch (err) {
     return res.status(400).json({

@@ -75,15 +75,16 @@ const expiresFunction = (data) => {
           message: `The user ${data[i].lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
         })
       }
+    } 
+    if (info.length !== 0) {
+      return info;
     } else {
       return {
+        status: 400,
         message: "There is no delayed film"
       }
     }
-  }
-  if (info.length !== 0) {
-    return info;
-  }
+    }
   
 }
 
@@ -95,22 +96,23 @@ const expiresOneFunction = (data) => {
     const returnDate = dateReturn(element.deadlineForReturn);
     const duration = moment.duration(now.diff(returnDate));
     const delayedDays = Math.sign(duration._data.days);
+    item.returnDate = formatDate(new Date());
     if (delayedDays === 1) {
       info.push({
         data: item,
         message: `The user ${item.lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
       })
+    } else {
+      info.push({
+        data: item,
+        status: 200,
+        message: "User did not delay delivery"
+      })
     }
+    
   });
-  if (info.length > 0) {
-    return {
-      info: info
-    };
-  }
-  return {
-    status: 200,
-    message: "User did not delay delivery"
-  }
+  return info;
+
 }
 
 module.exports = {

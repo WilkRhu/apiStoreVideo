@@ -14,6 +14,7 @@ const returnObjectsRentals = (data) => {
 
   for (let i = 0; i < data.length; i++) {
     const rentals = {
+      id: data[i].id,
       moviesId: data[i].moviesId,
       amount: data[i].amount,
       deadlineForReturn: data[i].deadlineForReturn,
@@ -28,6 +29,7 @@ const returnObjectsRentals = (data) => {
 
 const returnContractRental = (data) => {
   const rental = {
+    id: data.id,
     moviesId: data.moviesId,
     amount: data.amount,
     deadlineForReturn: data.deadlineForReturn,

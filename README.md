@@ -250,8 +250,10 @@ Em resumo...
     <b>PUT /rental/devolve</b>
     <p>
         <b>Rota usada para devolver a locação passando o id com corpo da requisição</b>
-        <div>
         <b>Dessa forma</b>
+        <div>
+        <span>Caso a locação esteja em atraso retorna essa informação</span>
+        </div>
             <img src="https://user-images.githubusercontent.com/29145254/96386453-76615900-1171-11eb-902e-9cbf442be882.PNG" />
         </div>
     <p>
