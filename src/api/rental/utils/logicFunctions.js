@@ -6,31 +6,34 @@ const {
 const moment = require('moment');
 
 const deadLineReturn = (movieAmount, rentalAmount) => {
-  if (movieAmount > rentalAmount) {
-    const date = new Date();
-    const currentDate = new Date();
+  var subtraction = Math.sign(movieAmount - rentalAmount);
+  if (subtraction >= 1 || subtraction === 0 && movieAmount !== 0) {
+    let date = currentDate = new Date();
     const amountForRental = amountForRentalFunction(rentalAmount);
     const newDate = currentDate.setDate(date.getDate() + amountForRental);
     const DeadDate = formatDate(newDate);
     if (DeadDate) {
-      return DeadDate;
+      return {
+        date: DeadDate
+      };
     }
     return false
   }
-  return "You have exceeded the number of films available"
+  return {
+    error:"You have exceeded the number of films available",
+    status: 400,
+    message: `Movie amount ${movieAmount}`
+  }
 
 };
 
-/* const deadLineReturn = (amount) => {
-  return amountForRentalFunction(amount);
-}; */
 
 const amountFunction = async (movies, amountRental) => {
-  if (movies.amount >= 1 && amountRental <= movies.amount) {
-    const amountMoveCurrent = movies.amount;
-    const updateAmount = amountMoveCurrent - amountRental;
+  var subtraction = Math.sign(movies.amount - amountRental);
+  if (subtraction >= 1 || subtraction === 0 && movies.amount !== 0) {
+    const subtractionFromUpdateAmount =  (movies.amount - amountRental);
     const upTableMovie = await Movies.update({
-      amount: updateAmount
+      amount: subtractionFromUpdateAmount
     }, {
       where: {
         id: movies.id
@@ -49,40 +52,39 @@ const amountFunction = async (movies, amountRental) => {
 }
 
 const amountForRentalFunction = (rentalAmount) => {
-  if (rentalAmount == 1) {
-    return 1
-  } else if (rentalAmount <= 5) {
-    return 3
-  } else if (rentalAmount <= 9) {
-    return 5
-  } else if (rentalAmount > 9) {
-    return 10
-  }
+  let value;
+  rentalAmount === 1 ?
+  value = 1 : rentalAmount <= 5 ?
+  value = 3 : rentalAmount <= 9 ?
+  value = 5 : value = 10;
+
+  return value;
 };
 
 const expiresFunction = (data) => {
   const now = moment(new Date());
   const info = [];
   for (let i = 0; i < data.length; i++) {
-      if(data[i].returnDate === null) {
-        const element = data[i].dataValues;
-        const returnDate = dateReturn(element.deadlineForReturn);
-        const duration = moment.duration(now.diff(returnDate));
-        const delayedDays = Math.sign(duration._data.days);
-        if (delayedDays === 1) {
-          info.push({
-            data: data[i],
-            message: `The user ${data[i].lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
-          })
-        }
+    if (data[i].dataValues.returnDate === null || data[i].dataValues.returnDate ==='') {
+      const returnDate = dateReturn(data[i].dataValues.deadlineForReturn);
+      const duration = moment.duration(now.diff(returnDate));
+      const delayedDays = Math.sign(duration._data.days);
+      if (delayedDays === 1) {
+        info.push({
+          data: data[i],
+          message: `The user ${data[i].lessor} delayed ${duration._data.days} days ${duration._data.hours} hours ${duration._data.minutes} minutes and ${duration._data.seconds} seconds or the delivery of the movie`
+        })
       }
+    } else {
       return {
         message: "There is no delayed film"
       }
     }
-    if(info.length !== 0) {
-      return info;
-    }
+  }
+  if (info.length !== 0) {
+    return info;
+  }
+  
 }
 
 const expiresOneFunction = (data) => {
@@ -100,7 +102,7 @@ const expiresOneFunction = (data) => {
       })
     }
   });
-  if(info.length > 0) {
+  if (info.length > 0) {
     return {
       info: info
     };

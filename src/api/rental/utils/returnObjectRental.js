@@ -1,4 +1,3 @@
-const {formatDate} = require("./formatDate");
 
 const returnObjectRental = (data,  returnPeriod) => {
   const rental = {
@@ -27,7 +26,20 @@ const returnObjectsRentals = (data) => {
   return returnObject.sort();
 }
 
+const returnContractRental = (data) => {
+  const rental = {
+    moviesId: data.moviesId,
+    amount: data.amount,
+    deadlineForReturn: data.deadlineForReturn,
+    lessor: data.lessor,
+    rentalDate: data.rentalDate,
+    returnDate: data.returnDate
+  }
+  return rental;
+};
+
 module.exports = {
   returnObjectRental,
-  returnObjectsRentals
+  returnObjectsRentals,
+  returnContractRental
 };
