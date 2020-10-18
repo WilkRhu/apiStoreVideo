@@ -7,7 +7,12 @@ const {
 const findAll = async (req, res) => {
   try {
     const movie = await Movie.findAll({});
-    return res.status(200).json(movie);
+    if(movie.length !== 0) {
+      return res.status(200).json(movie);
+    } 
+    return res.status(404).json({
+      error: "Moves not found on database"
+    })
   } catch(err) {
     return res.status(400).json({
       error: err.message
