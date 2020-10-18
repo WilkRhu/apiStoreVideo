@@ -144,18 +144,24 @@ Em resumo...
 
 <li><code>PUT /rental/devolve - devolver um filme</code></li>
 </ul>
+<hr>
+<h2>Rotas Movies</h2>
 <p>
     <b>GET /movie</b>
     <p>
         <b>Retorna a lista dos filmes cadastrados</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385130-45305b00-1168-11eb-9cb2-516dab44c3c7.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385130-45305b00-1168-11eb-9cb2-516dab44c3c7.PNG" />
+        </div>
     <p>
 </p>
 <p>
     <b>GET /movie{id}</b>
     <p>
         <b>Retorna o filme cadastrado passando a id como parâmetro</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385319-7fe6c300-1169-11eb-936f-c5e5a782124e.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385319-7fe6c300-1169-11eb-936f-c5e5a782124e.PNG" />
+        </div>
     <p>
 </p>
 
@@ -163,9 +169,13 @@ Em resumo...
     <b>POST /movie</b>
     <p>
         <b>Cadastra o movie passando essas informações</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385386-e370f080-1169-11eb-98e1-1e94d296d49e.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385386-e370f080-1169-11eb-98e1-1e94d296d49e.PNG" />
+        </div>
         <b>Deve retornar essas informações</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385414-2a5ee600-116a-11eb-9e38-6720626eb7e7.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385414-2a5ee600-116a-11eb-9e38-6720626eb7e7.PNG" />
+        </div>
     <p>
 </p>
 <p>
@@ -174,9 +184,13 @@ Em resumo...
         <b>Update dos filmes</b>
         <span>Obs: nessa rota você pode passar qualquer um
         dos campos que queira atualizar</span>
-        <img src="https://user-images.githubusercontent.com/29145254/96385635-883ffd80-116b-11eb-9642-35a94b5ad485.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385635-883ffd80-116b-11eb-9642-35a94b5ad485.PNG" />
+        </div>
         <b>Deve retornar essas informações</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385646-9db52780-116b-11eb-9c14-2785f3d74f58.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385646-9db52780-116b-11eb-9c14-2785f3d74f58.PNG" />
+        </div>
     <p>
 </p>
 
@@ -184,9 +198,61 @@ Em resumo...
     <b>DELETE /movie/{id}</b>
     <p>
         <b>Deletar um filme passando o {id}</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385796-92163080-116c-11eb-85ea-22a45191f0b4.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385796-92163080-116c-11eb-85ea-22a45191f0b4.PNG" />
+        </div>
         <b>Deve retornar essas informações</b>
-        <img src="https://user-images.githubusercontent.com/29145254/96385797-93475d80-116c-11eb-92a4-31143aca8760.PNG" />
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96385797-93475d80-116c-11eb-92a4-31143aca8760.PNG" />
+        </div>
+    <p>
+</p>
+<hr>
+<h2>Rotas Rental</h2>
+
+<p>
+    <b>POST /rental</b>
+    <p>
+        <b>Fazer um pedido de locação</b>
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96386451-75c8c280-1171-11eb-87fb-ae66d4ada6ca.PNG" />
+        </div>
+        <b>Deve retornar essas informações</b>
+        <div>
+            <img src="https://user-images.githubusercontent.com/29145254/96386073-7f9cf680-116e-11eb-98e2-d0994386cdc4.PNG" />
+        </div>
     <p>
 </p>
 
+<p>
+    <b>GET /rental</b>
+    <p>
+        <b>Retorna a lista de todas as locações criadas</b>
+        <div>
+        <b>Deve retornar essas informações</b>
+            <img src="https://user-images.githubusercontent.com/29145254/96386449-74979580-1171-11eb-839e-fc5c1467397b.PNG" />
+        </div>
+    <p>
+</p>
+
+<p>
+    <b>GET /rental/expire</b>
+    <p>
+        <b>Retorna a lista de todas as locações com a data de inpiração atrasada</b>
+        <div>
+        <b>Deve retornar essas informações</b>
+            <img src="https://user-images.githubusercontent.com/29145254/96386068-7d3a9c80-116e-11eb-8dc6-a76b6f128e07.PNG" />
+        </div>
+    <p>
+</p>
+
+<p>
+    <b>PUT /rental/devolve</b>
+    <p>
+        <b>Rota usada para devolver a locação passando o id com corpo da requisição</b>
+        <div>
+        <b>Dessa forma</b>
+            <img src="https://user-images.githubusercontent.com/29145254/96386453-76615900-1171-11eb-902e-9cbf442be882.PNG" />
+        </div>
+    <p>
+</p>
