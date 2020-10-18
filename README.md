@@ -10,6 +10,7 @@
     <li><a href="#amb">Configurando o ambiente e subindo a aplicação</a></li>
     <li><a href="#pcus">Pacotes Usados</a></li>
     <li><a href="#end">EndPoints</a></li>
+    <li><a href="#func">Funções Logicas</a></li>
 </ul>
 <hr>
 <h2><a name="feature">Features</a></h2>
@@ -280,7 +281,7 @@ Em resumo...
     <p>
 </p>
 <hr>
-<h2>Sobre as funções de logica</h2>
+<h2><a name="func">Sobre as funções de logica</a></h2>
 <p>
 Crie na forma de função logica arquivo dentro da pasta api/rental/utils/logicFunction.js, esse arquivo é responsável pelo acoplamento das funções que são necessárias para :
 </p>
