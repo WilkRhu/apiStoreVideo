@@ -11,6 +11,7 @@
     <li><a href="#pcus">Pacotes Usados</a></li>
     <li><a href="#end">EndPoints</a></li>
     <li><a href="#func">Funções Logicas</a></li>
+    <li><a href="#var">Variáveis de ambiente</a></li>
 </ul>
 <hr>
 <h2><a name="feature">Features</a></h2>
@@ -310,7 +311,7 @@ Essa função é responsável para verificar o banco de dados e retornar as loca
 Verifica se a locação esta ou não atrasada porem só lê uma entidade, é usada na rota put para retornar uma mensagem informando se a devolução está ou não em atraso.
 </p>
 <hr>
-<h2>Variáveis de ambiente</h2>
+<h2><a name="var">Variáveis de ambiente</a></h2>
 <p>
     arquivo .env.test
 </p>
@@ -318,7 +319,7 @@ Verifica se a locação esta ou não atrasada porem só lê uma entidade, é usa
 PORT=3000
 DIALECT=sqlite
 STORAGE=config/database/testes/testes.sqlite
-NODE_ENV=prod
+NODE_ENV=test
 </code>
 
 <p>
