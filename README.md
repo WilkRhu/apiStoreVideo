@@ -143,6 +143,8 @@ Em resumo...
 <p>Obs:  esses são os principais pacotes que foram ultilizados na construção do projeto e serão istalados automaticamente a partir do comando <code>npm intall</code>
 <hr>
 <h2 name="end">EndPoints</h2>
+<p>Obs: A aplicação está disponível no heroku, dodos o endpoints podem ser testado aqui => </p>
+ <code>https://apistorevideo.herokuapp.com</code>
 <ul>
 <li><code>GET /movie - listar todos os filmes</code></li>
 
