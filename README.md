@@ -309,3 +309,25 @@ Essa função é responsável para verificar o banco de dados e retornar as loca
 <p>
 Verifica se a locação esta ou não atrasada porem só lê uma entidade, é usada na rota put para retornar uma mensagem informando se a devolução está ou não em atraso.
 </p>
+<hr>
+<h2>Variáveis de ambiente</h2>
+<p>
+    arquivo .env.test
+</p>
+<code>
+PORT=3000
+DIALECT=sqlite
+STORAGE=config/database/testes/testes.sqlite
+NODE_ENV=prod
+</code>
+
+<p>
+    arquivo .env
+</p>
+<code>
+PORT=3000
+PORT=3000
+DIALECT=sqlite
+STORAGE=config/database/database.sqlite
+NODE_ENV=prod
+</code>
