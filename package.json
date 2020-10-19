@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "verbose": true
+  },
+
   "scripts": {
     "start": "nodemon server.js",
     "pretest": "sequelize-cli db:migrate --env=test",
