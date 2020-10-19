@@ -69,7 +69,7 @@ Será necessário ter o sequelize-cli de forma global o como dependencia de dese
 <a href="https://www.npmjs.com/package/sequelize-cli"><p>Mais informações aqui</p></a></p>
 <h2>Teste</h2>
 Como informado foi ultilizado o jest para os tests unitário e de integração.
-Para rodar os testes local será necessário criar um arquivo com o nome de <code>envDatabase</code> na raiz do projeto, contendo essas informações <br>
+Para rodar os testes local será necessário criar um arquivo com o nome de <code>envDatabase.js</code> na raiz do projeto, contendo essas informações <br>
 <code>
 const test = {
   dialect: "sqlite",
